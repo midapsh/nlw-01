@@ -4,6 +4,8 @@ import express from "express";
 // npx tsc --init
 // Inicializar aplicacao
 // npx ts-node src/server.ts
+// ou
+// npm run dev
 const app = express();
 
 app.get(
