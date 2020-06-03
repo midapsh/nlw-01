@@ -1,4 +1,5 @@
 import express from "express";
+import routes from "./routes";
 // Inicializando arquivo de inicializacao do typescript
 // Video 1: 57:53
 // npx tsc --init
@@ -8,13 +9,7 @@ import express from "express";
 // npm run dev
 const app = express();
 
-app.get(
-  "/users",
-  (request, response) => {
-    console.log("listagem de usuario");
-    const msg = "Hello Oi";
-    response.json({ msg });
-  },
-);
+app.use(express.json());
+app.use(routes);
 
 app.listen(1234);
