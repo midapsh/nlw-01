@@ -96,6 +96,9 @@ dist
 # Serverless directories
 .serverless/
 
+# Ignore sqlite
+database.sqlite
+
 # FuseBox cache
 .fusebox/
 
