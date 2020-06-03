@@ -1,6 +1,8 @@
 import path from "path";
 // Para executar o arquivo faca
-// 'npx knex migrate:latest --knexfile knexfile.ts migrate:latest'
+// npx knex migrate:latest --knexfile knexfile.ts migrate:latest
+// ou
+// npm run knex:migrate
 module.exports = {
   client: "sqlite3",
   connection: {
@@ -8,5 +10,6 @@ module.exports = {
   },
   migrations: {
     directory: path.resolve(__dirname, "src", "database", "migrations"),
-  }
+  },
+  useNullAsDefault: true,
 };
