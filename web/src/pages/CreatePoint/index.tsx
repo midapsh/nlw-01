@@ -33,6 +33,12 @@ const CreatePoint = () => {
 
   const [initialPosition, setInitialPosition] = useState<[number, number]>([0, 0,]);
 
+  const [formData, setFormData] = useState({
+    name: "",
+    email: "",
+    whatsapp: "",
+  });
+
   const [selectedUf, setSelectedUf] = useState<string>("0");
   const [selectedCity, setSelectedCity] = useState<string>("0");
   const [selectedPosition, setSelectedPosition] = useState<[number, number]>([0, 0,]);
@@ -74,14 +80,12 @@ const CreatePoint = () => {
   }, [selectedUf]);
 
   function handleSelectUf(event: ChangeEvent<HTMLSelectElement>) {
-    // selectedUf, setSelectedUf
     const uf = event.target.value;
 
     setSelectedUf(uf);
   }
 
   function handleSelectCity(event: ChangeEvent<HTMLSelectElement>) {
-    // selectedUf, setSelectedUf
     const city = event.target.value;
 
     setSelectedCity(city);
@@ -92,6 +96,11 @@ const CreatePoint = () => {
       event.latlng.lat,
       event.latlng.lng
     ]);
+  }
+
+  function handleInputChange(event: ChangeEvent<HTMLInputElement>) {
+    const { name, value } = event.target;
+    setFormData({ ...formData, [name]: value});
   }
 
   return (
@@ -117,6 +126,7 @@ const CreatePoint = () => {
               type="text"
               name="name"
               id="name"
+              onChange={handleInputChange}
             />
           </div>
 
