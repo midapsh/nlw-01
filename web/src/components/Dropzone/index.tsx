@@ -4,7 +4,11 @@ import { FiUpload } from "react-icons/fi";
 
 import "./styles.css";
 
-const Dropzone = () => {
+interface Props {
+  onFileUploaded: (file: File) => void;
+}
+
+const Dropzone: React.FC<Props> = ({ onFileUploaded }) => {
   const [selectedFileUrl, setSelectedFileUrl] = useState("");
 
   const onDrop = useCallback(acceptedFiles => {
@@ -13,7 +17,8 @@ const Dropzone = () => {
     const fileUrl = URL.createObjectURL(file);
 
     setSelectedFileUrl(fileUrl);
-  }, []);
+    onFileUploaded(file);
+  }, [onFileUploaded]);
 
   const { getRootProps, getInputProps, isDragActive } = useDropzone({
     onDrop,
@@ -29,7 +34,7 @@ const Dropzone = () => {
           : isDragActive
             ? <p>Coloque o arquivo aqui ...</p>
             : <p>
-                <FiUpload />
+              <FiUpload />
                 Imagem do estabelecimento
               </p>
       }
