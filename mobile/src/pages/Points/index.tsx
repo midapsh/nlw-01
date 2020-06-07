@@ -7,6 +7,7 @@ import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import MapView, { Marker } from "react-native-maps";
 
 import { SvgUri } from "react-native-svg";
+import * as Location from "expo-location";
 
 import api from "../../services/api";
 
@@ -26,7 +27,8 @@ const Points = () => {
       .then(response => {
         setItems(response.data);
       });
-  });
+  }, []);
+
   function handleNavigateBack() {
     navigation.goBack();
   }
