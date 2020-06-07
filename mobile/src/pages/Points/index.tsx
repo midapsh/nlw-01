@@ -2,7 +2,7 @@ import React from "react";
 import Constants from "expo-constants";
 import { Feather as Icon } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
-import { View, StyleSheet, Image, Text } from "react-native";
+import { View, StyleSheet, Image, Text, SafeAreaView } from "react-native";
 import { TouchableOpacity, ScrollView } from "react-native-gesture-handler";
 import MapView, { Marker } from "react-native-maps";
 
@@ -20,7 +20,7 @@ const Points = () => {
   }
 
   return (
-    <>
+    <SafeAreaView style={{ flex: 1 }}>
       <View style={styles.container} >
         <TouchableOpacity onPress={handleNavigateBack}>
           <Icon
@@ -123,7 +123,7 @@ const Points = () => {
           </TouchableOpacity>
         </ScrollView>
       </View>
-    </>
+    </SafeAreaView>
   );
 }
 
