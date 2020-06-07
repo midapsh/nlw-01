@@ -1,5 +1,6 @@
 import path from "path";
 import express from "express";
+import cors from "cors";
 import routes from "./routes";
 // Inicializando arquivo de inicializacao do typescript
 // Video 1: 57:53
@@ -10,6 +11,7 @@ import routes from "./routes";
 // npm run dev
 const app = express();
 
+app.use(cors());
 app.use(express.json());
 app.use(routes);
 
