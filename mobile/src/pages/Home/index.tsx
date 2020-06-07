@@ -2,11 +2,18 @@ import React from "react";
 import { Feather as Icon } from "@expo/vector-icons";
 import { View, ImageBackground, Image, StyleSheet, Text } from "react-native";
 import { RectButton } from "react-native-gesture-handler";
+import { useNavigation } from "@react-navigation/native";
 // Install fonts
 // Link: https://github.com/expo/google-fonts
 // expo install expo-font @expo-google-fonts/ubuntu @expo-google-fonts/roboto
 
 const Home = () => {
+  const navigation = useNavigation();
+
+  function handleNavigateToPoints() {
+    navigation.navigate("Points");
+  }
+
   return (
     <ImageBackground
       source={require("../../assets/home-background.png")}
@@ -24,7 +31,7 @@ const Home = () => {
       <View style={styles.footer}>
         <RectButton
           style={styles.button}
-          onPress={() => { }}
+          onPress={handleNavigateToPoints}
         >
           <View style={styles.buttonIcon}>
             <Text>
